@@ -1,0 +1,13 @@
+body {
+    width: 300px;
+    padding: 20px;
+}
+
+input,
+button {
+    margin: 5px 0;
+}
+
+#result {
+    margin-top: 10px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Upload Form</h2>
+    <form id="dataForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="button" id="submitBtn">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $('#submitBtn').click(function () {
+                var formData = new FormData($('#dataForm')[0]);
+                $.ajax({
+                    url: '{% url 'upload' %}',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        alert(response.message);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error submitting form. Please try again later.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

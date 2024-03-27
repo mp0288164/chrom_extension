@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Filling Extension</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>Form Filling Extension</h1>
+    <div>
+        <label for="fileInput">Select PDF/DOC file:</label>
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx">
+    </div>
+    <div>
+        <label for="urlInput">Enter URL of the form:</label>
+        <input type="text" id="urlInput" placeholder="https://example.com/form">
+    </div>
+    <button id="submitButton">Submit</button>
+    <div id="result"></div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
